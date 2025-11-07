@@ -31,4 +31,9 @@ public class UserRole {
 
     @Column(name = "revoked_on")
     private LocalDateTime dateRevoked;
+
+    public UserRole(User user, Role role) {
+        this.user = user;
+        this.role = role;
+    }
 }
