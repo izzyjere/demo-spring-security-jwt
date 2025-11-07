@@ -5,13 +5,14 @@ import com.example.demo.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 @CrossOrigin("*")
 @RequiredArgsConstructor
 @Slf4j
@@ -20,6 +21,7 @@ public class AuthController {
     private final JwtUtils jwtUtils;
 
     @PostMapping("/signup")
+    @PreAuthorize("permitAll()")
     public ResponseEntity<?> signup(@RequestBody CreateUser request) {
         try {
             var user = userAccountService.register(request.firstName(), request.lastName(), request.email(), request.password());

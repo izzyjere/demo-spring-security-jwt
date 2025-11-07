@@ -24,11 +24,11 @@ app:
   module-name: "Mobile Banking"
   key-store: /opt/demo/keystore.pfx
   key-alias: demo
-  key-store-password: ''
+  key-store-password: 'changeit'
   token-expiration: 60
   auth-whitelist:
-    - /api/auth/**
-    - /v3/api-docs/**
-    - /v3/api-docs.yaml
-    - /swagger-ui/**
+    - "/api/auth/**"
+    - "/v3/api-docs/**"
+    - "/v3/api-docs.yaml"
+    - "/swagger-ui/**"
 
