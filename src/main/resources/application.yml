@@ -26,4 +26,9 @@ app:
   key-alias: demo
   key-store-password: ''
   token-expiration: 60
+  auth-whitelist:
+    - /api/auth/**
+    - /v3/api-docs/**
+    - /v3/api-docs.yaml
+    - /swagger-ui/**
 
