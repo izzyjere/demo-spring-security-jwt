@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: demo-api
+    version: 1.0
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/demo_app
+    username: postgres
+    password: password
+    hikari:
+      max-lifetime: 30000
+      maximum-pool-size: 10
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+app:
+  api-version: v1
+  module-name: "Mobile Banking"
+  key-store: /opt/demo/keystore.pfx
+  key-alias: demo
+  key-store-password: ''
+  token-expiration: 60
+
