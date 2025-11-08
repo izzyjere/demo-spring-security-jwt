@@ -20,8 +20,8 @@ public class AdminController {
 
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('ADM_VIEW_USERS')")
-    public ResponseEntity<?> users() {
-        return ResponseEntity.ok(ApiResponse.success("", userAccountService
-                .getAllUsers()));
+    public ResponseEntity<ApiResponse> users() {
+        var users = userAccountService.getAllUsers();
+        return ResponseEntity.ok(ApiResponse.success("", users));
     }
 }

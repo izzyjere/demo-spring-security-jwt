@@ -32,6 +32,7 @@ dependencies {
     implementation 'io.swagger.core.v3:swagger-annotations:2.2.40'
     implementation 'io.jsonwebtoken:jjwt-api:0.13.0'
     implementation 'org.modelmapper:modelmapper:3.2.5'
+    implementation 'org.modelmapper:modelmapper-module-record:1.0.0'
 
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'

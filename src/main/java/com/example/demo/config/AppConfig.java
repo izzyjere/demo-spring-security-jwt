@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import lombok.Data;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.record.RecordModule;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,8 @@ public class AppConfig {
 
     @Bean
     public ModelMapper modelMapper() {
-        return new ModelMapper();
+        var mapper = new ModelMapper();
+        mapper.registerModule(new RecordModule());
+        return mapper;
     }
 }

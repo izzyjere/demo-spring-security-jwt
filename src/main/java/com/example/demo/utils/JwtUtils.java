@@ -73,7 +73,8 @@ public class JwtUtils {
     public boolean validateToken(String token, UserDetails user) {
         var username = extractUsername(token);
         var expiration = extractClaim(token, Claims::getExpiration);
-        return username.equals(user.getUsername()) && expiration.before(new Date());
+        var active = expiration.after(new Date());
+        return username.equals(user.getUsername()) &&  active;
     }
 
     private Claims extractClaims(String token) {
