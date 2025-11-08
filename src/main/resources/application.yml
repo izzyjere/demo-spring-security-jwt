@@ -21,7 +21,7 @@ spring:
 
 app:
   api-version: v1
-  module-name: "Mobile Banking"
+  module-name: "DEMO"
   key-store: /opt/demo/keystore.pfx
   key-alias: demo
   key-store-password: 'changeit'
