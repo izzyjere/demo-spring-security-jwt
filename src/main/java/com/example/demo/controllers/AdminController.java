@@ -4,12 +4,8 @@ import com.example.demo.dto.ApiResponse;
 import com.example.demo.services.UserAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -20,8 +16,9 @@ public class AdminController {
 
     @GetMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasAuthority('ADM_VIEW_USERS')")
-    public ResponseEntity<ApiResponse> users() {
+    @ResponseBody
+    public ApiResponse users() {
         var users = userAccountService.getAllUsers();
-        return ResponseEntity.ok(ApiResponse.success("", users));
+        return ApiResponse.success("", users);
     }
 }
