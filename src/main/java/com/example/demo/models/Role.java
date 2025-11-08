@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "roles")
 @Getter
@@ -18,4 +21,7 @@ public class Role {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "role")
+    private Set<RoleClaim> claims = new HashSet<>();
 }

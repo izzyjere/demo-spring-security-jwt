@@ -31,4 +31,6 @@ app:
     - "/v3/api-docs/**"
     - "/v3/api-docs.yaml"
     - "/swagger-ui/**"
+  privileges:
+    - ADM_VIEW_USERS
 

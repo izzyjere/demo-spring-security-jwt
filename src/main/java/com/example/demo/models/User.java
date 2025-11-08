@@ -48,9 +48,12 @@ public class User implements UserDetails {
                 .toList();
         for (var role : activeRoles) {
             authorities.add(new SimpleGrantedAuthority(role.getRole().getName()));
+            //TODO: Role privileges
+           role.getRole()
+                   .getClaims().forEach(claim -> {
+                       authorities.add(new SimpleGrantedAuthority(claim.getClaim()));
+                   });
         }
-        //TODO: Role privileges
-
         return authorities;
     }
 
